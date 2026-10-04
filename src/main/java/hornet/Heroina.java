@@ -47,4 +47,34 @@ public class Heroina {
     return String.format("%s | Mascaras: %d/%d | Seda: %d/%d",
       nome, vida, VIDA_MAXIMA_PADRAO, seda, SEDA_MAXIMA_PADRAO);
   }
+
+    public void atacar() {
+    System.out.println(nome + " ataca com a agulha!");
+    seda = Math.min(SEDA_MAXIMA_PADRAO, seda + 1);
+  }
+
+  public void atacar(int vezes) {
+    for (int i = 0; i < vezes; i++) {
+      atacar();
+    }
+  }
+
+  public void receberDano(int dano) {
+    vida = Math.max(VIDA_MINIMA_PADRAO, vida - dano);
+    System.out.println(nome + " recebeu " + dano + " de dano");
+  }
+
+  public void curar() {
+    if (seda == SEDA_MAXIMA_PADRAO) {
+      vida = Math.min(VIDA_MAXIMA_PADRAO, vida + 3);
+      seda = SEDA_MINIMA_PADRAO;
+      System.out.println(nome + " se amarrou com seda e recuperou 3 mascaras");
+    } else {
+      System.out.println(nome + " nao tem seda suficiente para se curar");
+    }
+  }
+
+  public boolean estaDerrotada() {
+    return vida == VIDA_MINIMA_PADRAO;
+  }
 }
