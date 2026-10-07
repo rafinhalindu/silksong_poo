@@ -1,5 +1,8 @@
 package hornet;
 
+import lombok.Getter;
+
+@Getter
 public class Heroina {
   private static final int VIDA_MINIMA_PADRAO = 0;
   private static final int VIDA_MAXIMA_PADRAO = 5;
@@ -11,18 +14,6 @@ public class Heroina {
   private String nome;
   private int vida;
   private int seda;
-
-  public String getNome() {
-    return nome;
-  }
-  
-  public int getVida() {
-    return vida;
-  }
-
-  public int getSeda() {
-    return seda;
-  }
 
   public Heroina(String nome) {
     this.nome = nome;
